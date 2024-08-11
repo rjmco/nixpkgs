@@ -71,7 +71,7 @@ in
   # GC has 1460 MTU
   networking.interfaces.eth0.mtu = 1460;
 
-  systemd.packages = [ pkgs.google-guest-agent ];
+  systemd.packages = [ pkgs.google-guest-agent, pkgs.google-guest-oslogin ];
   systemd.services.google-guest-agent = {
     wantedBy = [ "multi-user.target" ];
     restartTriggers = [ config.environment.etc."default/instance_configs.cfg".source ];
